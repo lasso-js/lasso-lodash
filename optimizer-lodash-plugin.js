@@ -11,7 +11,9 @@ function compileFile(path, callback) {
 }
 
 module.exports = function(optimizer, config) {
-    ['lodash'].forEach(function(ext) {
+    var ext = config.ext || 'lodash';
+
+    [ext].forEach(function(ext) {
          optimizer.dependencies.registerRequireType(
              ext,
              {
